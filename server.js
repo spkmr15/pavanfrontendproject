@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
+//const express = require('express');
 
 dotenv.config();
 const app = express();
@@ -20,8 +21,8 @@ app.get("/cancel", (req, res) => {
 });
 
 
-let stripeGateway = Stripe(process.env.stripe_key);
-let DOMAIN = process.env.DOMAIN;
+let stripeGateway = Stripe('sk_test_51OG0iRSHxlx8g8kVK1kzi5akKfkwiix25Zh3FTfdBueHQOoUqh3k4M3A2rihpQJOzuaeKrDTfR90SaGeMrfMj5iA00bLSQEwkF');
+let DOMAIN = 'http://localhost:3000';
 app.post("/stripe-checkout", async (req, res) => {
     const lineItems = req.body.items.map((item) => {
         const unitAmount = parseInt(item.price.replace(/[^0-9.-]+/g, "") * 100);
@@ -29,14 +30,14 @@ app.post("/stripe-checkout", async (req, res) => {
         console.log("unitAmount:", unitAmount);
         return {
             price_data: {
-                currency: "usd", 
+                currency: "inr", 
                 product_data: {
                     name: item.title,
                     images: [item.productImg],
                 },
                 unit_amount: unitAmount, 
             },
-            quantitty: item.quantitty,
+            quantity: item.quantitty,
         };
     });
     console.log("lineItems:", lineItems);
