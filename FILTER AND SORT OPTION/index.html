@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH/4kPzMJWswJW36p6M4+c9aAqB+rC6xRUnKswlPq2eNi7clzC58J8MwX14xSRTwGLftRDOw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <title>E-commerce List Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader"></div>
+
+  <!-- Header -->
+  <header>
+    <h1>FILTER AND SORT OPTION</h1>
+    <button id="scrollToTop">↑</button>
+  </header>
+  <!-- Filter and Sort Section -->
+  <div class="filter-bar">
+    <select id="categoryFilter">
+      <option value="All Categories">All Categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="Fashion">Fashion</option>
+    </select>
+    <select id="sortOptions">
+      <option value="default">Sort By</option>
+      <option value="lowToHigh">Price: Low to High</option>
+      <option value="highToLow">Price: High to Low</option>
+    </select>
+  </div>
+
+  <!-- Product Grid -->
+  <div id="productGrid" class="product-grid"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden">Product added to cart!</div>
+
+<script src="script.js"></script>
+</body>
+</html>
